@@ -1,7 +1,7 @@
 import graphene
 import Profile.schema
 import graphql_jwt
-import EmergencyServices
+import EmergencyServices.schema
 
 
 class Query(Profile.schema.Query, EmergencyServices.schema.Query, graphene.ObjectType):
