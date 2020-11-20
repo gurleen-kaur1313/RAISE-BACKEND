@@ -65,8 +65,8 @@ class AddPoliceEmergency(graphene.Mutation):
     myEmergency = graphene.Field(Police)
 
     class Arguments:
-        longitude = graphene.Int()
-        latitude = graphene.Int()
+        longitude = graphene.Float()
+        latitude = graphene.Float()
 
     def mutate(self, info, **kwargs):
         user = info.context.user
@@ -80,8 +80,8 @@ class AddHealthEmergency(graphene.Mutation):
     myEmergency = graphene.Field(Health)
 
     class Arguments:
-        longitude = graphene.Int()
-        latitude = graphene.Int()
+        longitude = graphene.Float()
+        latitude = graphene.Float()
 
     def mutate(self, info, **kwargs):
         user = info.context.user
