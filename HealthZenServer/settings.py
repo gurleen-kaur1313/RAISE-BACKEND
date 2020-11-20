@@ -26,7 +26,7 @@ SECRET_KEY = '6g7h_1va#yb%pwi*1oma+(4r8#2rx31%6-3u+krjhna_6fux$q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','localhost','healthzen-backend.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','localhost','raise-backend.herokuapp.com']
 
 
 # Application definition
