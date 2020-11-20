@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+graphene-django = "*"
+django-graphql-jwt = "*"
+django-cors-headers = "*"
+django-environ = "*"
+pre-commit = "*"
+django-graphql-auth = "*"
+graphene-file-upload = "*"
+whitenoise = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.8"
