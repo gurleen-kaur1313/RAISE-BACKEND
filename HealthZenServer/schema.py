@@ -8,7 +8,7 @@ class Query(Profile.schema.Query, EmergencyServices.schema.Query, graphene.Objec
     pass
 
 
-class Mutation(Profile.schema.Mutation,EmergencyServices.schema.Query, graphene.ObjectType):
+class Mutation(Profile.schema.Mutation,EmergencyServices.schema.Mutation, graphene.ObjectType):
     token_auth = graphql_jwt.ObtainJSONWebToken.Field()
     verify_token = graphql_jwt.Verify.Field()
     refresh_token = graphql_jwt.Refresh.Field()
