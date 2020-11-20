@@ -6,8 +6,8 @@ class PoliceEmergency(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
-    longitude = models.IntegerField(blank=True,null=True)
-    latitude = models.IntegerField(blank=True,null=True)
+    longitude = models.IntegerField()
+    latitude = models.IntegerField()
 
     def __str__(self):
         return self.user.email
@@ -21,8 +21,8 @@ class HealthEmergency(models.Model):
                              on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
     problem = models.TextField(help_text="Problem : ")
-    longitude = models.IntegerField(blank=True,null=True)
-    latitude = models.IntegerField(blank=True,null=True)
+    longitude = models.IntegerField()
+    latitude = models.IntegerField()
 
     def __str__(self):
         return self.user.email
