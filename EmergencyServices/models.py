@@ -60,5 +60,4 @@ class Jobs(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self, *args, **kwargs):
-        super(Jobs, self).save(*args, **kwargs)
+    
