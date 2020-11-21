@@ -20,11 +20,16 @@ class Health(DjangoObjectType):
     class Meta:
         model = HealthEmergency
 
+class jobss(DjangoObjectType):
+    class Meta:
+        model = Jobs
+
 class Query(graphene.ObjectType):
     getAllTest = graphene.List(TestForHealth)
     getMyTest = graphene.List(TestForHealth)
     police = graphene.List(Police)
     health = graphene.List(Health)
+    alljobs = graphene.List(jobss)
 
     def resolve_getAllTest(self, info):
         return HealthTest.objects.all()
@@ -40,6 +45,9 @@ class Query(graphene.ObjectType):
 
     def resolve_health(self,info):
         return HealthEmergency.objects.all().order_by("-time")
+
+    def resolve_alljobs(self, info):
+        return Jobs.objects.all()
 
 
 class AddHealthTest(graphene.Mutation):
