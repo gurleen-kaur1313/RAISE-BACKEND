@@ -51,4 +51,14 @@ class HealthTest(models.Model):
         super(HealthTest, self).save(*args, **kwargs)
 
 
-# Create your models here.
+class Jobs(models.Model):
+    title = models.CharField(blank=True, max_length=250)
+    description = models.TextField()
+    pay = models.IntegerField()
+    skillsrequired = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        super(Jobs, self).save(*args, **kwargs)

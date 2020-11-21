@@ -3,7 +3,7 @@ import graphene
 from graphene.types.argument import Argument
 from graphene.types.mutation import Mutation
 from graphene_django import DjangoObjectType
-from .models import HealthTest, PoliceEmergency, HealthEmergency
+from .models import HealthTest, PoliceEmergency, HealthEmergency, Jobs
 from graphql import GraphQLError
 
 
