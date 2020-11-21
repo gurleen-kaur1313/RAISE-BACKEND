@@ -6,8 +6,9 @@ class PoliceEmergency(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
-    longitude = models.FloatField(null=True)
-    latitude = models.FloatField(null=True)
+    longitude = models.CharField(null=True,blank=True,max_length=250)
+    latitude = models.CharField(null=True,blank=True, max_length=250)
+    date = models.CharField(null=True,blank=True, max_length=250)
 
     def __str__(self):
         return self.user.email
@@ -21,8 +22,9 @@ class HealthEmergency(models.Model):
                              on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
     problem = models.TextField(help_text="Problem : ")
-    longitude = models.FloatField(null=True)
-    latitude = models.FloatField(null=True)
+    longitude = models.CharField(null=True,blank=True,max_length=250)
+    latitude = models.CharField(null=True,blank=True,max_length=250)
+    date = models.CharField(null=True,blank=True, max_length=250)
 
     def __str__(self):
         return self.user.email
@@ -52,7 +54,7 @@ class HealthTest(models.Model):
 
 
 class Jobs(models.Model):
-    title = models.CharField(blank=True, max_length=250)
+    title = models.CharField(blank=True, max_length=250,null=False)
     description = models.TextField(null=True,blank=True)
     pay = models.IntegerField(null=True,blank=True)
     skillsrequired = models.TextField(null=True,blank=True)

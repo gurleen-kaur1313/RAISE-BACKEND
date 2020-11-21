@@ -66,37 +66,41 @@ class AddHealthTest(graphene.Mutation):
         test.test = kwargs.get("test")
         test.remarksDoc = kwargs.get("remarksDoc")
         test.remarksPat = kwargs.get("remarksPat")
-
+        test.save()
         return AddHealthTest(myTest=test)
 
 class AddPoliceEmergency(graphene.Mutation):
     myEmergency = graphene.Field(Police)
 
     class Arguments:
-        longitude = graphene.Float()
-        latitude = graphene.Float()
+        longitude = graphene.String()
+        latitude = graphene.String()
+        date = graphene.String()
 
     def mutate(self, info, **kwargs):
         user = info.context.user
         test = PoliceEmergency.objects.create(user=user)
         test.longitude = kwargs.get("longitude")
         test.latitude = kwargs.get("latitude")
-
+        test.date = kwargs.get("date")
+        test.save()
         return AddPoliceEmergency(myEmergency=test)
 
 class AddHealthEmergency(graphene.Mutation):
     myEmergency = graphene.Field(Health)
 
     class Arguments:
-        longitude = graphene.Float()
-        latitude = graphene.Float()
+        longitude = graphene.String()
+        latitude = graphene.String()
+        date = graphene.String()
 
     def mutate(self, info, **kwargs):
         user = info.context.user
         test = HealthEmergency.objects.create(user=user)
         test.longitude = kwargs.get("longitude")
         test.latitude = kwargs.get("latitude")
-
+        test.date = kwargs.get("date")
+        test.save()
         return AddHealthEmergency(myEmergency=test)
 
 class AddJob(graphene.Mutation):
@@ -118,7 +122,7 @@ class AddJob(graphene.Mutation):
         jobadd.skillsrequired = kwargs.get("skillsrequired")
         jobadd.mobile = kwargs.get("mobile")
         jobadd.location = kwargs.get("location")
-
+        jobadd.save()
         return AddJob(newjob=jobadd)
 
 
