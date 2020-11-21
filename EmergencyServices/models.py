@@ -6,8 +6,8 @@ class PoliceEmergency(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    longitude = models.FloatField(null=True)
+    latitude = models.FloatField(null=True)
 
     def __str__(self):
         return self.user.email
@@ -21,8 +21,8 @@ class HealthEmergency(models.Model):
                              on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now=True)
     problem = models.TextField(help_text="Problem : ")
-    longitude = models.FloatField()
-    latitude = models.FloatField()
+    longitude = models.FloatField(null=True)
+    latitude = models.FloatField(null=True)
 
     def __str__(self):
         return self.user.email
@@ -53,11 +53,14 @@ class HealthTest(models.Model):
 
 class Jobs(models.Model):
     title = models.CharField(blank=True, max_length=250)
-    description = models.TextField()
-    pay = models.IntegerField()
-    skillsrequired = models.TextField()
+    description = models.TextField(null=True,blank=True)
+    pay = models.IntegerField(null=True,blank=True)
+    skillsrequired = models.TextField(null=True,blank=True)
+    mobile=models.CharField(blank=True,null=True,max_length=16)
+    location=models.CharField(blank=True,null=True,max_length=250)
 
     def __str__(self):
         return self.title
 
-    
+    def save(self, *args, **kwargs):
+        super(Jobs, self).save(*args, **kwargs)

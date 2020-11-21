@@ -47,10 +47,10 @@ class Profile(models.Model):
     )
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    name = models.CharField(blank=True, max_length=250)
-    mobile = models.IntegerField()
-    state = models.TextField(blank=True, help_text="State : ")
-    city = models.TextField(blank=True, help_text="City : ")
+    name = models.CharField(blank=True,null=True, max_length=250)
+    mobile = models.CharField(blank=True, null=True,max_length=16)
+    state = models.TextField(blank=True,null=True, help_text="State : ")
+    city = models.TextField(blank=True,null=True, help_text="City : ")
     Age = models.IntegerField(blank=True, validators=[
                               MinValueValidator(0)], null=True)
     Height = models.IntegerField(blank=True, validators=[

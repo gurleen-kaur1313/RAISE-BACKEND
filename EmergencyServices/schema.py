@@ -99,7 +99,31 @@ class AddHealthEmergency(graphene.Mutation):
 
         return AddHealthEmergency(myEmergency=test)
 
+class AddJob(graphene.Mutation):
+    newjob = graphene.Field(jobss)
+
+    class Arguments:
+        title = graphene.String()
+        description = graphene.String()
+        pay = graphene.Int()
+        skillsrequired = graphene.String()
+        mobile = graphene.String()
+        location = graphene.String()
+
+    def mutate(self, info, **kwargs):
+        jobadd=Jobs.objects.create()
+        jobadd.title = kwargs.get("title")
+        jobadd.description = kwargs.get("description")
+        jobadd.pay = kwargs.get("pay")
+        jobadd.skillsrequired = kwargs.get("skillsrequired")
+        jobadd.mobile = kwargs.get("mobile")
+        jobadd.location = kwargs.get("location")
+
+        return AddJob(newjob=jobadd)
+
+
 class Mutation(graphene.ObjectType):
     add_test = AddHealthTest.Field()
     add_police = AddPoliceEmergency.Field()
     add_health = AddHealthEmergency.Field()
+    add_job = AddJob.Field()

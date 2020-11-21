@@ -81,7 +81,7 @@ class CreateProfile(graphene.Mutation):
 
     class Arguments:
         name = graphene.String()
-        mobile = graphene.Int()
+        mobile = graphene.String()
         state = graphene.String()
         city = graphene.String()
         age = graphene.Int()
@@ -112,7 +112,7 @@ class UpdateProfile(graphene.Mutation):
 
     class Arguments:
         name = graphene.String()
-        mobile = graphene.Int()
+        mobile = graphene.String()
         state = graphene.String()
         city = graphene.String()
         age = graphene.Int()
