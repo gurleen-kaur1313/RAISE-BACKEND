@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+import uuid
 
 
 class PoliceEmergency(models.Model):
@@ -31,6 +32,22 @@ class HealthEmergency(models.Model):
 
     def save(self, *args, **kwargs):
         super(HealthEmergency, self).save(*args, **kwargs)
+
+
+class UnsafeAreas(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    city = models.CharField(null=True,blank=True,max_length=250)
+    state = models.CharField(null=True,blank=True,max_length=250)
+    flag = models.IntegerField(null=True,blank=True,default=0)
+    time = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.city
+
+    def save(self, *args, **kwargs):
+        super(UnsafeAreas, self).save(*args, **kwargs)
+
+
 
 
 class HealthTest(models.Model):
